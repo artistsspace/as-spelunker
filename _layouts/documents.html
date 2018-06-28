@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<table id="as">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Document</th>
+      <th>Date</th>
+      <th>Content Blocks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for page in site.data.documents %}
+    <tr>
+      <td>{{ forloop.index }}</td>
+      <td><a href="http://artistsspace.org{{ page.href }}">{{ page.title }}<br><small>{{ page.href }}</small></a></td>
+      <td>{{ page.date }}</td>
+      <td>{{ page.content }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#as').DataTable({
+      paging: false
+    });
+  });
+</script>
